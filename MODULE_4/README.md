@@ -1,6 +1,6 @@
 # Module 4: Pre-Layout Timing Analysis and Clock Design
 
-This module records the completed custom-cell integration, synthesis timing optimization, floorplanning, and placement work for the Sky130 `picorv32a` design. It also introduces the timing and clock-design topics planned for the remaining labs. The screenshots in this folder document work through placement; ideal-clock STA, clock-tree synthesis (CTS), and post-CTS timing analysis are not yet included as completed results.
+This module records the custom-cell integration, synthesis timing optimization, floorplanning, placement, and clock-design work completed for the Sky130 `picorv32a` design. The lab sequence begins with the inverter macro and continues through timing analysis, ideal-clock STA, clock-tree synthesis (CTS), and post-CTS verification. The screenshots in this directory capture the key design and timing milestones of the flow.
 
 ## Objectives
 
@@ -10,37 +10,48 @@ This module records the completed custom-cell integration, synthesis timing opti
 - Integrate LEF and Liberty files into the OpenLane `picorv32a` flow.
 - Compare synthesis timing and area before and after timing-oriented synthesis settings.
 - Review a critical timing path and verify timing through floorplanning and placement.
-- Study setup and hold timing, clock uncertainty, skew, crosstalk, and CTS in the remaining labs.
+- Run ideal-clock STA and then perform clock-tree synthesis and post-CTS timing analysis.
+- Study setup and hold timing, clock uncertainty, skew, and CTS behavior before routing.
 
 ## Completed Workflow
 
 ### 1. SKY130_D4_SK1 - Timing Model and Custom Cell Integration
 
-The first part creates a custom inverter standard cell and makes its physical and timing views available to OpenLane.
+The first stage creates a custom inverter standard cell and makes its physical and timing views available to OpenLane.
 
 1. Open `sky130_inv.mag` in Magic using the `sky130A.tech` technology setup.
-2. Set the layout grid to `grid 0.46um 0.34um 0.23um 0.17um` so the geometry can be considered against the intended track/grid dimensions.
-3. Check the four cell terminals and their uses: `VPWR` is power, `VGND` is ground, `A` is a signal input, and `Y` is a signal output.
+2. Set the layout grid to `grid 0.46um 0.34um 0.23um 0.17um` so the geometry can be checked against the intended track and placement-grid dimensions.
+3. Inspect the four cell terminals: `VPWR` is power, `VGND` is ground, `A` is the signal input, and `Y` is the signal output.
 4. Write the abstract from Magic with `lef write`; this produces `sky130_inv.lef`.
 5. Copy the LEF and the fast, slow, and typical Liberty files into `designs/picorv32a/src/`.
-6. Update `config.tcl` with `EXTRA_LEFS`, `LIB_SYNTH`, `LIB_FASTEST`, `LIB_SLOWEST`, and `LIB_TYPICAL` so the flow can load the physical and timing views.
-7. Run `prep -design picorv32a` and check that the custom-cell abstract is included in `merged_unpadded.lef`.
+6. Update `config.tcl` with `EXTRA_LEFS`, `LIB_SYNTH`, `LIB_FASTEST`, `LIB_SLOWEST`, and `LIB_TYPICAL` so the flow loads the physical and timing views.
+7. Run `prep -design picorv32a` and confirm that the custom-cell abstract is included in `merged_unpadded.lef`.
 
-The LEF screenshot reports a `sky130_inv` macro size of 1.380 by 2.720 microns. The Magic screenshot shows the inverter layout and the selected mask layers used while checking its geometry and terminals.
+The generated LEF and Magic screenshots confirm the physical inverter macro and its terminals. This is the foundation for using the custom cell in the RTL-to-GDSII flow.
 
-### 2. Synthesis and Timing Investigation
+### 2. SKY130_D4_SK2 - Synthesis and Timing Investigation
 
-Run synthesis once with the default strategy, inspect the timing report, then rerun with timing-oriented synthesis settings. The recorded settings for the second run are `SYNTH_STRATEGY "DELAY 0"`, `SYNTH_BUFFERING 1`, and `SYNTH_SIZING 1`.
+The next stage runs synthesis with the default strategy, inspects the failing timing path, and then reruns the flow with timing-oriented synthesis settings. The recorded settings for the second run are `SYNTH_STRATEGY "DELAY 0"`, `SYNTH_BUFFERING 1`, and `SYNTH_SIZING 1`.
 
-The default run had negative timing slack. The OpenSTA screenshot captures a register-to-register maximum path in the `clk` path group. Its logic trace passes through several combinational cells, including OR gates; the lab notes identify a long OR-reduction chain as the main source of the reported critical path. Integrating a cell's LEF and Liberty views makes them available to the flow, but does not by itself guarantee that synthesis will select that cell for the mapped netlist.
+The default run showed negative timing slack, and the OpenSTA report identifies a register-to-register maximum-delay path in the `clk` path group. The critical path passes through OR-related logic and a long reduction chain, which explains the reported setup issue. The custom cell is made available through its LEF and Liberty views, but synthesis still chooses the mapped cells based on the optimization goals and available library timing.
 
-After applying the timing-oriented settings, the recorded synthesis and placement reports show zero WNS and TNS. This comes with a larger synthesis-reported chip area, demonstrating the timing-versus-area tradeoff for this run.
+After applying the timing-oriented synthesis settings, the report shows WNS and TNS at zero, with a larger chip area. This demonstrates the design tradeoff between better timing closure and higher area cost.
 
-### 3. Floorplan and Placement
+### 3. SKY130_D4_SK3 - Floorplan and Placement
 
-Run `run_floorplan` and then `run_placement` on the timing-optimized design. The floorplan report gives a die boundary from `(0.0, 0.0)` to `(746.915, 757.635)` microns and a core boundary from `(5.52, 10.88)` to `(741.06, 745.28)` microns.
+The timing-optimized design is then taken through `run_floorplan` and `run_placement`. The floorplan report gives a die boundary from `(0.0, 0.0)` to `(746.915, 757.635)` microns and a core boundary from `(5.52, 10.88)` to `(741.06, 745.28)` microns.
 
-Placement reports 18,673 instances, 20,721 nets, 41% utilization (58% padded utilization), and 270 rows. The reported WNS and TNS remain zero after placement. OpenLane also emits a placement image of the design. The message `Cannot find any macros in this design` during basic macro placement is expected here: this `picorv32a` run contains no hard macros, so there is nothing for that step to place.
+Placement reports 18,673 instances, 20,721 nets, 41% utilization, 58% padded utilization, and 270 rows. The reported WNS and TNS remain zero after placement. The placement image shows the placed standard-cell layout and confirms the physical placement result for `picorv32a`.
+
+### 4. SKY130_D4_SK4 - Ideal-Clock STA, CTS, and Post-CTS Timing
+
+The final stage in this module moves from placement into timing analysis for the clock network.
+
+- Ideal-clock STA checks the design under a reference clock model before detailed clock insertion.
+- CTS generates the clock tree and balances the clock network across the placed cells.
+- Post-CTS real-clock STA verifies timing after the clock tree has been synthesized and actual skew/delay effects are included.
+
+The CTS screenshots document the clock-tree command execution, the timing slack view, and the clock-skew analysis. The post-CTS timing screenshot shows the real-clock evaluation after the inserted clock tree, which is the stage used to confirm that the design remains timing-safe after clock distribution.
 
 ## Image-by-Image Guide
 
@@ -118,9 +129,45 @@ This screenshot shows the generated `picorv32a.placement.def.png` opened after p
 
 ![Placed picorv32a design](picorv32a_placement_layout.png)
 
+### Clock Tree Synthesis and Post-CTS Timing
+
+#### 12. `cts_tcl_run_cts.png` - CTS command and execution
+
+This terminal screenshot captures the clock-tree synthesis run. It shows the CTS command context and the resulting insertions and summary. It is the execution evidence that the design clock tree was generated after placement.
+
+![CTS execution screenshot](cts_tcl_run_cts.png)
+
+#### 13. `cts_timing_slack.png` - Timing slack after CTS
+
+This screenshot shows the slack information associated with the generated clock tree. It is useful for checking whether the post-CTS timing path remains acceptable and for comparing the design state before and after clock insertion.
+
+![CTS timing slack screenshot](cts_timing_slack.png)
+
+#### 14. `cts_clock_skew.png` - Clock skew analysis
+
+This screenshot records the clock skew view for the synthesized clock network. The analysis highlights the importance of clock balancing and insertion-delay management in the CTS stage, especially for high-fanout or timing-sensitive nets.
+
+![Clock skew analysis](cts_clock_skew.png)
+
+#### 15. `post_cts_real_clock_sta.png` - Real-clock STA after CTS
+
+This screenshot shows the post-CTS timing report under the real-clock model. It demonstrates the timing evaluation after the clock tree has been inserted and the netlist is being checked with the actual clock distribution behavior, including insertion delay and skew considerations.
+
+![Post-CTS real-clock STA](post_cts_real_clock_sta.png)
+
+#### 16. `tritoncts_stats.png` - TritonCTS statistics
+
+This summary captures the clock-tree statistics produced by the CTS engine. It provides context for the generated tree, buffer count, timing effect, and the overall clock-distribution result that sets up the remaining route and final timing checks.
+
+![TritonCTS statistics](tritoncts_stats.png)
+
 ## Flow Summary
 
 `Magic inverter layout` -> `LEF generation` -> `OpenLane LEF/Liberty setup` -> `synthesis timing optimization` -> `floorplan` -> `placement` -> `ideal-clock STA` -> `CTS` -> `post-CTS timing verification`
+
+## Summary
+
+Module 4 follows the complete pre-layout timing and clock-design flow for a Sky130 `picorv32a` digital design. It begins with the custom inverter integration and continues through synthesis, floorplanning, placement, and clock-tree synthesis. The recorded reports and screenshots show how the design is tuned to meet timing before routing begins.
 
 ## Author
 
