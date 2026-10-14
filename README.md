@@ -1,24 +1,27 @@
 # RTL Design Workshop
 
-This repository documents an RTL design workshop that progresses from basic combinational and sequential logic to synthesis, timing analysis, and physical-design preparation. Each folder contains the related design references, simulation waveforms, RTL views, synthesis results, or implementation screenshots.
+This repository documents a hands-on digital-design learning path, from RTL coding and simulation to Sky130 standard-cell design and physical implementation. Each folder contains its own notes, screenshots, and workflow details.
 
-## Workshop Contents
+## RTL Design and Verification
 
-### Days
+- [Day 1](DAY_1/README.md) — Multiplexer RTL and waveform verification.
+- [Day 2](DAY_2/README.md) — Flip-flops, reset behavior, and module hierarchy.
+- [Day 3](DAY_3/README.md) — Constant-driven logic, counters, and synthesis optimization.
+- [Day 4](DAY_4/README.md) — Mux coding styles and blocking-assignment behavior.
+- [Day 5](DAY_5/README.md) — `case`/`if` logic, incomplete assignments, muxes, demuxes, and a ripple-carry adder.
+- [Day 6](DAY_6/README.md) — Pre- and post-synthesis design comparison.
+- [Day 7](DAY_7/README.md) — Sequence-detector simulation and synthesized schematic inspection.
 
-- [Day 1](DAY_1/README.md) - Multiplexer RTL and visual verification using GTKWave references.
-- [Day 2](DAY_2/README.md) - Flip-flops, asynchronous and synchronous reset behavior, module hierarchy, and synthesized netlists.
-- [Day 3](DAY_3/README.md) - Constant-driven logic, counters, synthesis optimization, and RTL-versus-synthesized views.
-- [Day 4](DAY_4/README.md) - Mux coding styles, ternary operators, blocking-assignment caveats, and synthesis comparisons.
-- [Day 5](DAY_5/README.md) - `case` and `if` coding, incomplete assignments, generated muxes and demuxes, and a ripple-carry adder.
-- [Day 6](DAY_6/README.md) - Pre-synthesis and post-synthesis design comparisons.
-- [Day 7](DAY_7/README.md) - Sequence-detector simulation, output behavior, RTL waveforms, and synthesized schematic views.
+## Sky130 ASIC Implementation
 
+- [Module 1](MODULE_1/README.md) — OpenLane synthesis, netlist generation, design statistics, and timing reports for `picorv32a`.
+- [Module 2](MODULE_2/README.md) — Floorplanning, I/O placement, and standard-cell placement.
+- [Module 3](MODULE_3/README.md) — CMOS inverter simulation, Magic layout, extracted-netlist simulation, and DRC experiments.
+- [Module 4](MODULE_4/README.md) — Custom-cell integration, timing optimization, placement, CTS, and post-CTS analysis.
+- [Module 5](MODULE_5/README.md) — Detailed routing, violation checks, post-route timing, and routed-layout inspection.
 
-## Learning Progression
+## Learning Flow
 
-1. Describe combinational logic and sequential elements in RTL.
-2. Understand reset behavior, hierarchy, and the effects of coding style.
-3. Identify incomplete assignments and common simulation or synthesis issues.
-4. Compare RTL, synthesized netlists, waveforms, and schematics.
-5. Run synthesis and review implementation statistics and timing.
+`RTL design and simulation` -> `synthesis and timing analysis` -> `cell characterization and layout` -> `floorplanning and placement` -> `CTS and post-CTS verification` -> `detailed routing and post-route review`
+
+The implementation modules use the Sky130 PDK and OpenLane/OpenROAD tools with the `picorv32a` design where applicable. See each module README for its step-by-step workflow and evidence.
