@@ -52,10 +52,10 @@ This exercise connects finite-state sequential behavior with RTL simulation and 
 
 ## Files
 
-- [sequence_detector_gtk_wave.png](sequence_detector_gtk_wave.png) - GTKWave simulation view.
-- [sequence_detector_output.png](sequence_detector_output.png) - Sequence detector output behavior.
-- [sequence_detector_rtl%20waveforms.png](sequence_detector%20rtl%20waveforms.png) - RTL waveform view.
-- [synth_schematic_block.png](synth_schematic_block.png) - Synthesized schematic block view.
+- [![GTKWave simulation view](sequence_detector_gtk_wave.png)](sequence_detector_gtk_wave.png) - GTKWave simulation view.
+- [![Sequence detector output behavior](sequence_detector_output.png)](sequence_detector_output.png) - Sequence detector output behavior.
+- [![RTL waveform view](sequence_detector_rtl%20waveforms.png)](sequence_detector_rtl%20waveforms.png) - RTL waveform view.
+- [![Synthesized schematic block view](synth_schematic_block.png)](synth_schematic_block.png) - Synthesized schematic block view.
 
 ## Tools Used
 

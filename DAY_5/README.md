@@ -54,22 +54,22 @@ This exercise reinforces the importance of complete combinational assignments an
 
 ## Files
 
-- [bad_case_gls.png](bad_case_gls.png) - Gate-level simulation of the incomplete `case` example.
-- [bad_case_gtk.png](bad_case_gtk.png) - GTKWave result for the bad `case` example.
-- [bad_case_yosys.png](bad_case_yosys.png) - Yosys view for the bad `case` example.
-- [comp_case_yosys.png](comp_case_yosys.png) - Yosys view of a complete `case` implementation.
-- [demux_case_gtk.png](demux_case_gtk.png) - GTKWave view of a `case`-based demux.
-- [demux_generate_gtk.png](demux_generate_gtk.png) - GTKWave view of a generated demux.
-- [incomp_case_gtk.png](incomp_case_gtk.png) - GTKWave result for an incomplete `case`.
-- [incomp_case_yosys.png](incomp_case_yosys.png) - Yosys view for an incomplete `case`.
-- [incomp_if.v_gtk.png](incomp_if.v_gtk.png) - GTKWave result for an incomplete `if`.
-- [incomp_if2_gtk.png](incomp_if2_gtk.png) - GTKWave result for a second incomplete `if` example.
-- [incomp_if2_yosys.png](incomp_if2_yosys.png) - Yosys view for the second incomplete `if` example.
-- [incomp_if_yosys.png](incomp_if_yosys.png) - Yosys view for the incomplete `if` example.
-- [mux_generate_gtk.png](mux_generate_gtk.png) - GTKWave view of a generated mux.
-- [mux_generate_yosys.png](mux_generate_yosys.png) - Yosys view of the generated mux.
-- [partial_case_assign_yosys.png](partial_case_assign_yosys.png) - Yosys view of partial `case` assignments.
-- [rca.v_gtk.png](rca.v_gtk.png) - GTKWave view of the ripple-carry adder.
+- [![Gate-level simulation of the incomplete `case` example](bad_case_gls.png)](bad_case_gls.png) - Gate-level simulation of the incomplete `case` example.
+- [![GTKWave result for the bad `case` example](bad_case_gtk.png)](bad_case_gtk.png) - GTKWave result for the bad `case` example.
+- [![Yosys view for the bad `case` example](bad_case_yosys.png)](bad_case_yosys.png) - Yosys view for the bad `case` example.
+- [![Yosys view of a complete `case` implementation](comp_case_yosys.png)](comp_case_yosys.png) - Yosys view of a complete `case` implementation.
+- [![GTKWave view of a `case`-based demux](demux_case_gtk.png)](demux_case_gtk.png) - GTKWave view of a `case`-based demux.
+- [![GTKWave view of a generated demux](demux_generate_gtk.png)](demux_generate_gtk.png) - GTKWave view of a generated demux.
+- [![GTKWave result for an incomplete `case`](incomp_case_gtk.png)](incomp_case_gtk.png) - GTKWave result for an incomplete `case`.
+- [![Yosys view for an incomplete `case`](incomp_case_yosys.png)](incomp_case_yosys.png) - Yosys view for an incomplete `case`.
+- [![GTKWave result for an incomplete `if`](incomp_if.v_gtk.png)](incomp_if.v_gtk.png) - GTKWave result for an incomplete `if`.
+- [![GTKWave result for a second incomplete `if` example](incomp_if2_gtk.png)](incomp_if2_gtk.png) - GTKWave result for a second incomplete `if` example.
+- [![Yosys view for the second incomplete `if` example](incomp_if2_yosys.png)](incomp_if2_yosys.png) - Yosys view for the second incomplete `if` example.
+- [![Yosys view for the incomplete `if` example](incomp_if_yosys.png)](incomp_if_yosys.png) - Yosys view for the incomplete `if` example.
+- [![GTKWave view of a generated mux](mux_generate_gtk.png)](mux_generate_gtk.png) - GTKWave view of a generated mux.
+- [![Yosys view of the generated mux](mux_generate_yosys.png)](mux_generate_yosys.png) - Yosys view of the generated mux.
+- [![Yosys view of partial `case` assignments](partial_case_assign_yosys.png)](partial_case_assign_yosys.png) - Yosys view of partial `case` assignments.
+- [![GTKWave view of the ripple-carry adder](rca.v_gtk.png)](rca.v_gtk.png) - GTKWave view of the ripple-carry adder.
 
 ## Tools Used
 

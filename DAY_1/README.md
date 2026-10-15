@@ -47,8 +47,8 @@ This exercise establishes the basic RTL workflow: describe a combinational circu
 
 ## Files
 
-- [good_mux_both.png](good_mux_both.png) - Combined multiplexer implementation and verification reference.
-- [good_mux_gtk.png](good_mux_gtk.png) - GTKWave waveform for the multiplexer.
+- [![Combined multiplexer implementation and verification reference](good_mux_both.png)](good_mux_both.png) - Combined multiplexer implementation and verification reference.
+- [![GTKWave waveform for the multiplexer](good_mux_gtk.png)](good_mux_gtk.png) - GTKWave waveform for the multiplexer.
 
 ## Tools Used
 

@@ -52,16 +52,16 @@ This exercise demonstrates that synthesis is both a translation and an optimizat
 
 ## Files
 
-- [deff_const2_gtk.png](deff_const2_gtk.png) - Simulation of the second constant-driven example.
-- [deff_const2_yosys.png](deff_const2_yosys.png) - Yosys view of the second constant-driven example.
-- [deff_const3_gtk.png](deff_const3_gtk.png) - Simulation of the third constant-driven example.
-- [dff_const3_yosys.png](dff_const3_yosys.png) - Yosys view of the third constant-driven example.
-- [dff_const_gtk.png](dff_const_gtk.png) - Simulation of a constant-driven D flip-flop.
-- [dff_const_yosys.png](dff_const_yosys.png) - Yosys view of the constant-driven D flip-flop.
-- [good_counter.png](good_counter.png) - Counter design reference.
-- [opt_check.png](opt_check.png) - First synthesis optimization check.
-- [opt_check2.png](opt_check2.png) - Second synthesis optimization check.
-- [opt_check3.png](opt_check3.png) - Third synthesis optimization check.
+- [![Simulation of the second constant-driven example](deff_const2_gtk.png)](deff_const2_gtk.png) - Simulation of the second constant-driven example.
+- [![Yosys view of the second constant-driven example](deff_const2_yosys.png)](deff_const2_yosys.png) - Yosys view of the second constant-driven example.
+- [![Simulation of the third constant-driven example](deff_const3_gtk.png)](deff_const3_gtk.png) - Simulation of the third constant-driven example.
+- [![Yosys view of the third constant-driven example](dff_const3_yosys.png)](dff_const3_yosys.png) - Yosys view of the third constant-driven example.
+- [![Simulation of a constant-driven D flip-flop](dff_const_gtk.png)](dff_const_gtk.png) - Simulation of a constant-driven D flip-flop.
+- [![Yosys view of the constant-driven D flip-flop](dff_const_yosys.png)](dff_const_yosys.png) - Yosys view of the constant-driven D flip-flop.
+- [![Counter design reference](good_counter.png)](good_counter.png) - Counter design reference.
+- [![First synthesis optimization check](opt_check.png)](opt_check.png) - First synthesis optimization check.
+- [![Second synthesis optimization check](opt_check2.png)](opt_check2.png) - Second synthesis optimization check.
+- [![Third synthesis optimization check](opt_check3.png)](opt_check3.png) - Third synthesis optimization check.
 
 ## Tools Used
 

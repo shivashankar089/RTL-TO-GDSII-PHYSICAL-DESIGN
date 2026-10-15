@@ -55,10 +55,21 @@ The post-synthesis reference shows the structure after synthesis. Comparing it w
 
 This exercise demonstrates the transition from RTL description to synthesized hardware and prepares the design for later physical implementation stages.
 
-## Files
+## Image-by-Image Guide
 
-- [pre_synthesis.png](pre_synthesis.png) - Design view before synthesis.
-- [post_synthesis.png](post_synthesis.png) - Design view after synthesis.
+Click either image to open it at full size. Compare the RTL-level structure before synthesis with the implementation-oriented structure afterward.
+
+### 1. `pre_synthesis.png` - Design before synthesis
+
+This view shows the design's RTL representation before synthesis transforms and maps its logic.
+
+[![Design view before synthesis](pre_synthesis.png)](pre_synthesis.png)
+
+### 2. `post_synthesis.png` - Design after synthesis
+
+This view shows the design after synthesis. Compare its structure with the pre-synthesis view to see how logic mapping and optimization changed the representation.
+
+[![Design view after synthesis](post_synthesis.png)](post_synthesis.png)
 
 ## Tools Used
 

@@ -52,12 +52,12 @@ This exercise builds the foundation for sequential RTL design and shows why rese
 
 ## Files
 
-- [asynchronous.png](asynchronous.png) - Asynchronous reset reference.
-- [dff_asy_gtk.png](dff_asy_gtk.png) - GTKWave view of an asynchronously reset D flip-flop.
-- [dff_syncres.png](dff_syncres.png) - Synchronously reset D flip-flop reference.
-- [flatten_netlist.png](flatten_netlist.png) - Flattened synthesized netlist.
-- [multiple_modules.png](multiple_modules.png) - Multi-module design reference.
-- [sub_module1.png](sub_module1.png) - Submodule reference.
+- [![Asynchronous reset reference](asynchronous.png)](asynchronous.png) - Asynchronous reset reference.
+- [![GTKWave view of an asynchronously reset D flip-flop](dff_asy_gtk.png)](dff_asy_gtk.png) - GTKWave view of an asynchronously reset D flip-flop.
+- [![Synchronously reset D flip-flop reference](dff_syncres.png)](dff_syncres.png) - Synchronously reset D flip-flop reference.
+- [![Flattened synthesized netlist](flatten_netlist.png)](flatten_netlist.png) - Flattened synthesized netlist.
+- [![Multi-module design reference](multiple_modules.png)](multiple_modules.png) - Multi-module design reference.
+- [![Submodule reference](sub_module1.png)](sub_module1.png) - Submodule reference.
 
 ## Tools Used
 
