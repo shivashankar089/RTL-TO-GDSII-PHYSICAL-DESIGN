@@ -4,9 +4,9 @@ A ~16-minute walkthrough of what I learned in this course, using open-source too
 
 ## Watch the video
 
-[![Watch the course video](thumbnail.png)](https://drive.google.com/file/d/1_lTXPXBqyxhfqN1JfvPyDH_VFePVhd-Z/view?usp=sharing)
+## Watch the video
 
-*Click the image to watch the video.*
+### [👉 Click here to see the video](https://drive.google.com/file/d/1_lTXPXBqyxhfqN1JfvPyDH_VFePVhd-Z/view?usp=sharing)
 
 | | |
 |---|---|
